@@ -1,0 +1,20 @@
+body {
+    background:  rgb(0,0,0);
+    color: white;
+}
+
+#content {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+#lists {
+    background-color: rgba(50,0,100, 0.8)
+}
+
+
+#projects {
+    background-color: rgb(50,0,100)
+}
