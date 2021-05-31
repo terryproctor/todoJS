@@ -8,13 +8,13 @@ class List{
         } else {
             this.listPriority = 'medium'
         }
+        this.projects = {};
+        //defaulted done to false
+        this.done = false;
     }
-    projects = {};
-    //defaulted done to false
-    done = false;
+    
     //method to toogle if done or not
     toggleDone = () => this.done? this.done = false : this.done = true;
-
 
     createProject(projectName, dueDate, priority) {
         let newProject = new Project(projectName, dueDate, priority);
@@ -28,13 +28,19 @@ class Project{
         this.projectName = projectName;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.todos = [];    
     }
+    
+    createTodo(todoName) {
+        this.todos.push(todoName);
+    };
 }; 
 
 //test
 const listy = new List ('firstList', '20/06/2022');
-console.log(listy);
+//console.log(listy);
 listy.createProject('shopping', '31/05/2021', 'high');
 listy.createProject('golf', '31/05/2021', 'low');
 console.log(listy.projects.golf);
-
+listy.projects.golf.createTodo('help');
+console.log(listy.projects.golf.todos[0]);
