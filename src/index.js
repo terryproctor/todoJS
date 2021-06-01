@@ -36,11 +36,31 @@ class Project{
     };
 }; 
 
+const createList = (listName, dueDate) => new List (listName, dueDate);
+
 //test
-const listy = new List ('firstList', '20/06/2022');
-//console.log(listy);
-listy.createProject('shopping', '31/05/2021', 'high');
-listy.createProject('golf', '31/05/2021', 'low');
-console.log(listy.projects.golf);
-listy.projects.golf.createTodo('help');
-console.log(listy.projects.golf.todos[0]);
+// const listy = new List ('firstList', '20/06/2022');
+// //console.log(listy);
+// listy.createProject('shopping', '31/05/2021', 'high');
+// listy.createProject('golf', '31/05/2021', 'low');
+// console.log(listy.projects.golf);
+// listy.projects.golf.createTodo('help');
+// console.log(listy.projects.golf.todos[0]);
+
+
+//////////
+///Dom stuff
+
+const inputNewList = () => {
+    //display boxes for inputing name and due by date to create new list
+    let name = document.createElement('input',);
+    name.setAttribute("type", "text");
+    name.setAttribute("id", "nameInput");
+    let listsColumn = document.getElementById('lists');
+    listsColumn.appendChild(name);
+    name.insertAdjacentHTML('beforeBegin', "Name: ")
+}
+
+const addList = document.getElementById('addList');
+addList.addEventListener('click', inputNewList);
+
