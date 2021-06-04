@@ -1,66 +1,57 @@
-class List{
-    constructor(title, dueDate, listPriority) {
+class Todo{
+    constructor(title, description, dueDate, priority) {
         this.title = title;
         this.dueDate = dueDate;
+        this.description = description;
         // default priority is medium if not set
-        if (listPriority) {
-            this.listPriority = listPriority;
+        if (priority) {
+            this.priority = priority;
         } else {
-            this.listPriority = 'medium'
+            this.priority = 'medium';
         }
-        this.projects = {};
-        //defaulted done to false
-        this.done = false;
+        this.lists = {};
+    }
+   
+    createList(name) {
+        this.lists[name] = new List(name);
+    };
+};
+
+// create new lists within todo;
+class List{
+    constructor(name) {
+    this.name = name;
+    this.items = []; 
+    this.done = false;   
     }
     
     //method to toogle if done or not
     toggleDone = () => this.done? this.done = false : this.done = true;
-
-    createProject(projectName, dueDate, priority) {
-        let newProject = new Project(projectName, dueDate, priority);
-        this.projects[newProject.projectName] = newProject;
-    };
-};
-
-// create new projects within list;
-class Project{
-    constructor(projectName, dueDate, priority) {
-        this.projectName = projectName;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.todos = [];    
-    }
     
-    createTodo(todoName) {
-        this.todos.push(todoName);
-    };
+    addItem = (itemName) => this.items.push(itemName);
 }; 
 
-const createList = (listName, dueDate) => new List (listName, dueDate);
-
-//test
-// const listy = new List ('firstList', '20/06/2022');
-// //console.log(listy);
-// listy.createProject('shopping', '31/05/2021', 'high');
-// listy.createProject('golf', '31/05/2021', 'low');
-// console.log(listy.projects.golf);
-// listy.projects.golf.createTodo('help');
-// console.log(listy.projects.golf.todos[0]);
-
+// test
+// let bigProject = new Todo('birthday party', 'Georges birthday party', '1804');
+// bigProject.createList('go_shopping');
+// bigProject.createList('cook_food');
+// bigProject.lists.cook_food.addItem('cheese and pineapples on sticks');
+// console.log(bigProject.lists);
 
 //////////
 ///Dom stuff
+// const inputs = ['name', 'description', 'dueDate', 'priority'];
+// const inputNewList = (type) => {
+//     //display boxes for inputing name and due by date to create new list
+//     let inputDiv = document.createElement('div');
 
-const inputNewList = () => {
-    //display boxes for inputing name and due by date to create new list
-    let name = document.createElement('input',);
-    name.setAttribute("type", "text");
-    name.setAttribute("id", "nameInput");
-    let listsColumn = document.getElementById('lists');
-    listsColumn.appendChild(name);
-    name.insertAdjacentHTML('beforeBegin', "Name: ")
-}
+//     let newInput = document.createElement('input',);
+//     newInput.setAttribute("type", type);
+//     newInput.setAttribute("id", `${type}Input`);
+//     let listsColumn = document.getElementById('lists');
+//     listsColumn.appendChild(newInput);
+//     newInput.insertAdjacentHTML('beforeBegin', `${type}: `)
+// }
 
-const addList = document.getElementById('addList');
-addList.addEventListener('click', inputNewList);
-
+// const addList = document.getElementById('addList');
+// addTodo.addEventListener('click', () => inputs.forEach(x => inputNewList(x)));

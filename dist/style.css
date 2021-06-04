@@ -17,22 +17,22 @@ body {
     grid-template-columns: 30% 70%;
 }
 
-#lists {
-    background-color: rgba(50,0,100, 0.8);
+#todos {
+    background-color: rgba(52, 0, 104, 0.8);
 
 }
 
-#lists > h3 {
+#todos > h3 {
     text-align: center;
     font-weight: 1000;
     font-size: 1.4rem;
 }
 
-#projects {
+#lists {
     background-color: rgb(50,0,100);
 }
 
-#addList {
+#addTodo {
     color: rgb(248, 234, 108);
     cursor: pointer;
 }
