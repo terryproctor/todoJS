@@ -5,16 +5,40 @@
     <title>To-Do-List</title>
     <link rel="stylesheet" href="style.css">
   <body>
+    
     <div id="topBar">
       <h1>To-Do</h1>
     </div>
+
     <div id="content">
       <div id="todos"><h3 id="addTodo">+</h3></div>
       
       <div id="lists"></div>
     </div>
-      
-
+      <div id="addTodoScreen">
+      <div id="backgroundForm">
+        <div id="foregorundForm">
+          <h2>New Todo</h2>
+          <form id="todoForm">
+            <label for="todoName">Name: </label>
+            <input type="text" id="todoName" name="todoName">
+            <label for="todoDueDate">DueDate: </label>
+            <input type="date" id="todoDueDate" name="todoDueDate">
+            <br>
+            <label for="todoPriority">Priority level: </label>
+              <input type="radio" id="high" name="priority" value="high">
+                <label for="high">high</label>
+              <input type="radio" id="medium" name="priority" value="medium" checked="checked">
+                <label for="medium">medium</label>
+              <input type="radio" id="low" name="priority" value="low">
+                <label for="low">low</label>
+                <br>
+            <label for="description">Description: </label><br>
+            <textarea id="description" name="description" rows="5" cols="50" form="todoForm"></textarea>
+          </form>
+        </div>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

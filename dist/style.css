@@ -36,3 +36,7 @@ body {
     color: rgb(248, 234, 108);
     cursor: pointer;
 }
+
+#addTodoScreen {
+    display:none;
+}
