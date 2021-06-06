@@ -38,20 +38,19 @@ class List{
 // bigProject.lists.cook_food.addItem('cheese and pineapples on sticks');
 // console.log(bigProject.lists);
 
-//////////
+///////////////////////////////////////////////////////////////////////
 ///Dom stuff
-// const inputs = ['name', 'description', 'dueDate', 'priority'];
-// const inputNewList = (type) => {
-//     //display boxes for inputing name and due by date to create new list
-//     let inputDiv = document.createElement('div');
 
-//     let newInput = document.createElement('input',);
-//     newInput.setAttribute("type", type);
-//     newInput.setAttribute("id", `${type}Input`);
-//     let listsColumn = document.getElementById('lists');
-//     listsColumn.appendChild(newInput);
-//     newInput.insertAdjacentHTML('beforeBegin', `${type}: `)
-// }
+const domStuff = (() => {
+    const mainContent = document.getElementById('content');
+    const addTodo = document.getElementById('addTodo');
+    const todoScreen = document.getElementById('todoScreen');
+    //plus sign toggle main screen display and form popping up
+    addTodo.addEventListener('click', () => {
+        mainContent.style.display="none";
+        todoScreen.style.display='block';
+    
+    });
+}
+)();
 
-// const addList = document.getElementById('addList');
-// addTodo.addEventListener('click', () => inputs.forEach(x => inputNewList(x)));

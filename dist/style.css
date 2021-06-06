@@ -37,6 +37,6 @@ body {
     cursor: pointer;
 }
 
-#addTodoScreen {
+#todoScreen {
     display:none;
 }
