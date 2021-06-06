@@ -49,7 +49,6 @@ const domStuff = (() => {
     addTodo.addEventListener('click', () => {
         mainContent.style.display="none";
         todoScreen.style.display='block';
-    
     });
 }
 )();
