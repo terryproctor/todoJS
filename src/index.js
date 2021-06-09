@@ -1,5 +1,6 @@
+// need to add to todoObjects instead
 let todoObjects = (() => {
-    todoObject = {}
+    todoObject = {'example':'exampletext',}
 })()
 
 class Todo{
