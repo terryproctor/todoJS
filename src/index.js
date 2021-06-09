@@ -1,3 +1,7 @@
+let todoObjects = (() => {
+    todoObject = {}
+})()
+
 class Todo{
     constructor(title, description, dueDate, priority) {
         this.title = title;
@@ -31,14 +35,10 @@ class List{
     addItem = (itemName) => this.items.push(itemName);
 }; 
 
+//function to create Todo
 const createTodo = (title, description, dueDate, priority) => new Todo(title, description, dueDate, priority);
 
-// test
-// let bigProject = new Todo('birthday party', 'Georges birthday party', '1804');
-// bigProject.createList('go_shopping');
-// bigProject.createList('cook_food');
-// bigProject.lists.cook_food.addItem('cheese and pineapples on sticks');
-// console.log(bigProject.lists);
+
 
 ///////////////////////////////////////////////////////////////////////
 ///Dom stuff
@@ -49,6 +49,7 @@ const domStuff = (() => {
     const todoScreen = document.getElementById('todoScreen');
     const form = document.getElementById('todoForm');
     const submit = document.getElementById('submit');
+    const todoList = document.getElementById('todos')
 
     const getFormStuff = () => {
         const newName = document.getElementById('todoName').value;
@@ -62,10 +63,34 @@ const domStuff = (() => {
         return {newName, newDate, newDescription, newPriority}
     }
 
+    const clearForm = () => {
+        const values = ['todoName', 'todoDueDate', 'description'];
+        values.forEach(item => {
+            let toWipe = document.getElementById(item);
+            toWipe.value= null;
+        }) 
+    }
+
     const showForm = () => {
         mainContent.style.display="none";
         todoScreen.style.display='block';
     }
+
+    const closeForm = () => {
+        mainContent.style.display="";
+        todoScreen.style.display='none';
+    }
+
+    
+
+    const createTodoDiv = (newTodo) => {
+        let newDiv= document.createElement('div');
+        newDiv.classList.add('todoItem');
+        let newText = document.createElement('p');
+        newText.textContent = newTodo.title;
+        newDiv.appendChild(newText);
+        todoList.prepend(newDiv);
+    } 
 
     //plus sign toggle main screen display and form popping up
     addTodo.addEventListener('click', (e) => {
@@ -78,9 +103,14 @@ const domStuff = (() => {
             const newForm = getFormStuff();
             //use form to create Todo
             const newTodo = createTodo(newForm.newName, newForm.newDescription, newForm.newDate, newForm.newPriority);
-            console.log(newTodo)
+            createTodoDiv(newTodo);
+            clearForm();
+            closeForm();
+            
         })
     });
+
+
 
     
 })();
